@@ -1,0 +1,48 @@
+name: "build"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    branches: [ main ]
+
+jobs:
+  scan:
+    runs-on: macos-latest-xlarge
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache
+        id: cache-pod
+        uses: actions/cache@v3.3.2
+        with:
+          # A list of files, directories, and wildcard patterns to cache and restore
+          path: |
+            Pods
+          # An explicit key for restoring and saving the cache
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          # An ordered list of keys to use for restoring stale cache if no cache hit occurred for key. Note `cache-hit` returns false in this case.
+          restore-keys: |
+            ${{ runner.os }}-pods-
+            
+      # Update Podfile cache after restore
+      - if: ${{ steps.cache-pod.outputs.cache-hit == 'true' }}
+        name: Update Podfile Dependencies
+        run: |
+          pod install
+        shell: bash
+
+      # Install CocoaPods dependencies if the cache is not located
+      - if: ${{ steps.cache-pod.outputs.cache-hit != 'true' }}
+        name: Install Podfile Dependencies
+        run: |
+          pod setup
+          pod deintegrate
+          rm Podfile.lock
+          pod cache clean --all
+          pod install --no-repo-update
+ #         pod install --verbose
+        shell: bash

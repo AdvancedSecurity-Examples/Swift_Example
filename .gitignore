@@ -1,0 +1,5 @@
+*.swp
+*~.nib
+.DS_Store
+xcuserdata/
+*xcworkspace/xcuserdata/*
