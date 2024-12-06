@@ -1,88 +1,48 @@
-## Function
-* This app is used to generate grocery shopping lists based on the recipes that the user would like to make.
-  
-## Storyline
-* The user authenicates to our server.
-* The user then searches for recipes that they would like to make.
-* Based on the recipes users can add items to their Kroger cart.
+![GSOC 2019](https://img.shields.io/static/v1.svg?label=GSOC&message=Google%20Summer%20of%20Code%202019&color=blue&logo=%20data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAABLFJREFUSA2tVV1sVFUQ/s45d7ulpT+63VSkQC1IIsHyAugDAWLwQSEQI/EnaGL0QWOQ6AMo+uAzJooJJJiIiQ8qkWDURIxGIlLUqEQTKz9REEpbMFhKt7ss7e49P35zb9jaqKEkTnL33jNn5ps538ycBa5D7MH8etuTX38dLlM3jQ+2rXRf1Q/LI99T9VRTMYy/rF+hUflAIeTEPkANe2Tvz9w1fuha/pMChE/RbDNRd83JWnigwzTO2Gma5+ec6eCWgnEDcMXfhl35j43cH4yiqOYSxbZX3YviVcXEDjVWR4tMRvUEegUXQzfNRtT1PJBbw7WFjocTv5DJwZgoZy7t3+N/34YwdhbKZKA0MO6i5UQ6/K8BYBC8gNsYKr8a6rZdCJePwx97EmH0e+rTxFTUDNW8FHrOs9CLD8OdeBp+6BOoKAPBuAou70knSDaYucrfA73wXbhTW+EHdqX2ypCdlNHgigjDn8Pz0R1PwSx8B+7oBuDi/n9ATgoQW+vqp8+EWrCb4C/B9xPciMnfSuVjLhlMM1sm6/vfSNZmwZvwR5YilAZdmlH6S9YmxFjMVl2bEcon08wTcO4LqEhwMHNfhm65E+BJE2GB/SCpLP8K3bUFgpFupL+1AGNfTF8ZtbbtQNt9zOo17iaV5ltDz3iErzpyTO7bH6KOBZ/xYHoSBmXl4M++ymZYh6g1v0OwaJRIEiBwcOrMlX26cV4+eAU/+l2yqTJtiLr3Qd1EMDsONNzKzMvwpaPUbYC5fS9AG5FQZBMwJ8EQLMEUvbaH2tZ6lD4kbM7pmwl0CagOQzXOh1ncg1D9E66XWTNT1byELXmaNmW4Xx6m3RAi2ohtqNLPjsCZmTyzzwmmPdS+VhvYQmBp0gaRDmNBZSG829GUFtPAAFS33AEUf0i/RUfK6E7bqiRLkWYQQ/kOJYNKQasVhR7nMmt8QJ/xA3S6EUJNGDsD++MqHvsKqXiPgaZBNTDT4hGeO6JuT0KX/elu2vZB1eUTX8EQLEtMwU5qkF1V7rUe6/zlU6eV5hzcsDxJBH4M7tjjaQEbyT8n2JdPEKiOjbAd7vgTDDKWJt26jJPMq6V08rRgCaaco9ZF2VXoDcXCJlzYwwndzP5nnwtVnH8/9JkcGf7cbiAm16TED3Go5G4QG86E7qQPfePiyCbBEnCRWgBZhAxG/JnXSRHvms4XmJ0VbRIsuTL6XuFaCE5Bkz25o27ZklDkz2yHJwYNajJpksmtDvEQaXkUZtFHiZHr28ZALKJmLuQ+AZV+5KWlDGdj7laY2c/B/byOpxvioSIaSmKpTA5AnSY1vvANPB30greg82vg+ncgFA4nbZm4ZdugWpcT+BnWowW+l+CFr9PLzkonTsjkAKSbHTDuFfkf+ZZ3yzLoWRvrzLwXdVDSkqW0EU0T3yX48+97P7CzGqoXmTl9iB2IMQGfElpbh72YhvZsR6VCVZYPP0wFM9X0prdNU+ccpziIpN+E8/zD6TsbLpcec1mcE2Mxl5/BC5XBWQ+ArZWKVOyaUjlQ1x3p+GOtQqcY+6D6rM+wFau1bvkvkCkFEOfKgcbuyMTsTTLlMquv9rms/zepHmheIs/1AP4F9DYB6+AcwCcAAAAASUVORK5CYII=)
 
-## Dependencies
-* Users need a Kroger Account in order to transfer item from our app to Kroger and be able to checkout with their items.
+____
 
-## Compiling
-* There are two ways to compile the app. A secure version and an insecure version.
-    
-## Free or Paid Spoonacular
-* If you pay for a spoonacular subscription in order to get more calls per day you will get an api key of length 50. In order to make the app use this key you will need to swap the key in 4 places: 3 in the RecipeInfo.swift file and 1 on the server. In RecipeInfo.swift you will need to change the key wherever it appears in the embeded rapidapi_key variable. This appears in the searchRecipes, getRandomRecipes, and getIngredients functions. On the server you will need to change the node_backend/index.js file located in the android repository. It appears in the rapidapi header.
-    
-### Secure
-* In order to compile the secure version of the app you need to click on the active scheme located to the left of the current emulator (refer to picture below), then go to "Manage Schemes" at the bottom, then select "STTR" and hit edit.
-![Screen Shot 2021-07-02 at 1 27 48 PM](https://user-images.githubusercontent.com/70813876/124315613-c9314400-db39-11eb-964f-9aee72a14a4f.png)
-* From there select "Archive" on the side bar and change "Build Configuration" to secure. The app is now ready for an .ipa of the secure version.
-* Select "Run" on the side bar and change "Build Configuration" to secure to test in the emulator and you may now click close.
+## OWASP iGoat (Swift) - A Damn Vulnerable Swift Application for iOS [![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow)](https://twitter.com/OWASPiGoat/)
 
-### Unsecure
-* Go to the insecurities section below and follow the directions to set the flags as you want them.
-* In order to compile the secure version of the app you need to click on the active scheme located to the left of the current emulator (refer to picture above), then go to "Manage Schemes" at the bottom, then select "STTR" and hit edit.
-* From there select "Archive" from the side bar and change "Build Configuration" to Unsecure. The app is now ready for an .ipa of the unsecure version.
-* Select "Run" from the side bar and change "Build Configuration" to Unsecure to test in the emulator and you may now click close.
+This is a Swift version of original iGoat [![Objective C](https://img.shields.io/badge/Objective-C-blue.svg)](https://github.com/OWASP/igoat) project. Using OWASP iGoat, you can learn exploiting and defending vulnerabilities in iOS Swift applications. Developed using [![Swift 4](https://img.shields.io/badge/Swift-4-blue.svg)](https://developer.apple.com/swift/) [![Ruby](https://img.shields.io/badge/Ruby--blue.svg)]()
 
-## Insecurities
-* When setting an insecurity, the flags are located in STTR/Pods/Pods-STTR.unsecure.xcconfig file on XCode, which can be found with clicking the folder icon in the top left of the menu.
-* A flag will be in the format of "-D (name)_T" or "-D (name)_F"
-* Setting the end of the flag to T (true) will include the insecurity in the app, whereas setting the end to F (false) will not include the insecurity.
-* The flags are listed towards the end of the file, on the line that starts with "OTHER_SWIFT_FLAGS =".
-* Each flag is listed below
+iGoat (Objective C) was presented at:
+[![AppSec USA 2017](https://img.shields.io/badge/AppSec%20USA-2017-red.svg)](https://appsecusa2017.sched.com/event/B2Xk/igoat-a-self-learning-tool-for-ios-app-pentesting-and-security) &nbsp; [![c0c0n 2017](https://img.shields.io/badge/c0c0n-2017-red.svg)](http://is-ra.org/c0c0n/2017/agenda) &nbsp; [![SEC-T 2017](https://img.shields.io/badge/SEC--T-2017-red.svg)](https://www.sec-t.org/archive/2017_events/schedule/) &nbsp; [![BruCON 2017](https://img.shields.io/badge/BruCON-2017-red.svg)](https://2017.brucon.org/index.php/Practical_iOS_App_Exploitation_and_Defense_using_iGoat) &nbsp; [![Bugcrowd Levelup 2017](https://img.shields.io/badge/BugcrowdLevelUp-2017-red.svg)](https://forum.bugcrowd.com/t/levelup-2017-discussion-swaroop-owasp-igoat/3052)
 
-#### HTTP
-* This flag makes it such that the app communicates with sttr.martincarlisle over HTTP rather than HTTPS.
-* The HTTP links are in plaintext as opposed to obfuscated behind AES.
-* Used in: CartView.swift, DeactivateAccountView.swift, KrogerAPI.swift, RecipeInfo.swift, Session.swift.
+__Vulnerabilities Covered (version 1.0):__ [![Download iGoat](https://img.shields.io/badge/Download-iGoat-orange.svg)](https://codeload.github.com/OWASP/iGoat-Swift/zip/master) Documentation: https://docs.igoatapp.com/
 
-#### EMBED
-* This flag makes it such that the API keys are hardcoded into the binary of the app.
-* If the flag is false, then the API keys will be recieved from sttr.martincarlisle.
-* Used in: KrogerAPI.swift, RecipeInfo.swift.
+Summary            |  Snapshot
+:-------------------------:|:-------------------------:
+__OWASP TOP 10 Mobile__ </br><p align="left">* __Reverse Engineering__</br>* __Runtime Analysis__</br>* __Data Protection (Rest)__</br>* __Data Protection (Transit)__</br>* __Key Management__</br>* __Tampering__</br>* __Injection Flaws__</br>* __Broken Cryptography__</br>* __Memory Management__</br>* __URL Scheme Attack__</br>* __Social Engineering__</br>* __SSL Pinning__</br>* __Authentication__</br>* __Jailbreak Detection__</br>* __Side Channel Data Leaks__</br>* __Cloud Misconfiguration__</br>* __Crypto Challenges__ | <img src="https://github.com/swaroopsy/test/blob/master/h1.gif?raw=true" width="256" title="iGoat App">
 
-#### SELFSIGNED and WRONGCERT
-* SELFSIGNED will make it so the Accounts page recieves user information from a selfsigned server.
-* WRONGCERT will make it so the Accounts page receives user information from a server with the wrong certificate.
-* To use SELFSIGNED, set SELFSIGNED to true and WRONGCERT to false. 
-* To use WRONGCERT, set both SELFSIGNED and WRONGCERT to true.
-* Used in: Networking.swift, Usernameview.swift.
+## Demo
+![Demo](https://github.com/swaroopsy/test/blob/master/OWASP_iGoat_Demo.gif)
 
-#### EMAIL
-* This flag makes it so the app will leak the user's email to the device logs on sign in.
-* Used in: Session.swift.
+__Documentation:__ <a href="https://github.com/OWASP/iGoat-Swift/wiki">iGoat Wiki</a>
 
-#### PASSWORD
-* This flag makes it so the app will leak the user's password to the device logs on sign up.
-* Used in: Session.swift.
+__iGoat Quick Setup__ `git clone https://github.com/OWASP/iGoat-Swift.git`and open iGoat-Swift.xcodeproj with xcode.
+__Setup iGoat Server__ Navigate to server > docker_packaging and then use command `docker compose up` <br>
+__Using Cydia Repo__ - Open Cydia -> Sources -> Edit and add source http://swiftigoat.yourepo.com/ and then search for iGoat and install it.
 
-#### FILE
-* This flag makes it so the app will print the user's email to a file on the device at sign in.
-* The file is located at Documents/output.txt.
-* Used in: Session.swift.
+__Project Lead__ - Swaroop Yermalkar [![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow)](https://twitter.com/swaroopsy)
 
-#### KEYBOARD
-* This flag makes it so the app will allow the use of third party keyboards.
-* Used in: AppDelegate.swift.
+__Lead Developer__ - Anthony Gonsalves
 
-#### CRYPTO
-* This flag makes it so the app will hash the user's password using MD5. It will then print a hex string of that hash to the device logs on sign in.
-* Used in: Session.swift.
+## Architecture
+![Architecture](https://github.com/swaroopsy/test/blob/master/Architecture.png?raw=true)
 
-#### NSCODING
-* This flag makes it so the app will use unsafe NSCoding to make an NSObject of the user.
-* This will occur when the user information is loaded in the Accounts page.
-* Used in: Usernameview.swift.
+### How to Contribute? ###
+* You can add new exercises
+* Testing iGoat and checking if any issues
+* Suggest us new attacks
+* Writing blogs / article about iGoat
+* Spreading iGoat :)
 
-#### ZIP
-* This flag makes it so the app will download a zip file from sttr.martincarlisle.
-* Currently this is downloaded when the Accounts page is loaded. We will move it to the settings menu on a "Check for Update" button.
-* This flag is where we use AFNetworking with the insecure flags as well.
-* Used in: AppDelegate.swift, Usernameview.swift.
+To contribute to iGoat project, please contact __Swaroop__ ( swaroop.yermalkar@owasp.org or @swaroopsy )
 
-#### LEAK
-* This flag makes it so the app will leak the user's zip code, latitutde and longitude (if location services are allowed), display name, first name, last name, full name, phone number, date of birth and email.
-* Used in: LocationView.swift, Usernameview.swift
+### Project Contributors - ###
+[Junard Lebajan](https://twitter.com/junard) <br>
+[Tim](https://twitter.com/0xff7) <br>
+[masbog](https://github.com/masbog) <br>
+[Arun](https://twitter.com/he_hacks)
+<br> Your name can be here :) We give cool iGoat t-shirt and swag!
